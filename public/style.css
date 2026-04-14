@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #111;
+}
+
+.app {
+    max-width: 400px;
+    height: 100vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background: #e5ddd5;
+}
+
+.header {
+    background: #075e54;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+#chat {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Message bubbles */
+.message {
+    max-width: 70%;
+    padding: 8px 10px;
+    margin: 5px;
+    border-radius: 8px;
+    position: relative;
+    font-size: 14px;
+}
+
+.sent {
+    background: #dcf8c6;
+    align-self: flex-end;
+}
+
+.received {
+    background: white;
+    align-self: flex-start;
+}
+
+/* timestamp */
+.time {
+    font-size: 10px;
+    color: gray;
+    text-align: right;
+}
+
+/* input area */
+form {
+    display: flex;
+    background: #f0f0f0;
+}
+
+input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    outline: none;
+}
+/* typing indicator */
+.typing {
+    font-size: 12px;
+    color: gray;
+    margin-left: 10px;
+}
+
+/* online users */
+#onlineUsers {
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+button {
+    padding: 12px;
+    border: none;
+    background: #075e54;
+    color: white;
+    font-size: 16px;
+}
