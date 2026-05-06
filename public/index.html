@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Clone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+    <!-- Header -->
+    <div class="header">
+        <div class="header-left">
+            <div class="user-avatar">👤</div>
+            <div class="header-title">
+                <h2>Chat</h2>
+                <p id="onlineUsers">0 online</p>
+            </div>
+        </div>
+        <div class="header-actions">
+            <button class="hdr-btn" id="voiceCallBtn" title="Voice Call">📞</button>
+            <button class="hdr-btn" id="videoCallBtn" title="Video Call">📹</button>
+            <button class="hdr-btn" id="contactsBtn" title="Contacts">👥</button>
+        </div>
+    </div>
+
+    <!-- Contacts Sidebar -->
+    <div id="contactsPanel" class="contacts-panel hidden">
+        <div class="contacts-header">
+            <span>Contacts</span>
+            <button class="close-btn" id="closeContacts">✕</button>
+        </div>
+        <div id="contactsList" class="contacts-list">
+            <p class="no-contacts">No one else online</p>
+        </div>
+    </div>
+
+    <!-- Chat Messages -->
+    <div id="chat"></div>
+
+    <p id="typing" class="typing"></p>
+
+    <!-- Emoji Picker -->
+    <div id="emojiPicker" class="emoji-picker hidden">
+        <div id="emojiGrid" class="emoji-grid"></div>
+    </div>
+
+    <!-- Attach Menu -->
+    <div id="attachMenu" class="attach-menu hidden">
+        <button id="imageBtn">🖼️ Photo</button>
+        <button id="fileBtn">📄 File</button>
+    </div>
+
+    <!-- Hidden file inputs -->
+    <input type="file" id="imageInput" accept="image/*" hidden>
+    <input type="file" id="fileInput" hidden>
+
+    <!-- Remote audio for voice calls (audio element always plays even when not visible) -->
+    <audio id="remoteAudio" autoplay playsinline></audio>
+
+    <!-- Input Bar -->
+    <div class="input-bar">
+        <button class="input-icon-btn" id="attachBtn" title="Attach">📎</button>
+        <button class="input-icon-btn" id="emojiBtn" title="Emoji">😊</button>
+        <form id="form">
+            <input id="input" placeholder="Type a message" autocomplete="off"/>
+            <button type="submit" class="send-btn">➤</button>
+        </form>
+    </div>
+
+    <!-- Incoming Call Modal -->
+    <div id="incomingCallModal" class="modal-overlay hidden">
+        <div class="call-card">
+            <div class="call-avatar">👤</div>
+            <h3 id="callerName">Someone</h3>
+            <p id="callTypeLabel" class="call-type">📞 Voice Call</p>
+            <div class="call-btns">
+                <button class="btn-accept" id="acceptCallBtn">✅ Accept</button>
+                <button class="btn-reject" id="rejectCallBtn">❌ Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Active Call UI -->
+    <div id="activeCallUI" class="active-call hidden">
+        <div class="call-header">
+            <p id="callPeerName">-</p>
+            <p id="callStatus" class="call-status">Ringing...</p>
+        </div>
+        <div class="videos-container" id="videosContainer">
+            <video id="remoteVideoEl" class="remote-video" autoplay playsinline></video>
+            <video id="localVideoEl" class="local-video" autoplay muted playsinline></video>
+            <div class="voice-avatar" id="voiceAvatar">🎙️</div>
+        </div>
+        <div class="call-controls">
+            <button class="ctrl-btn" id="muteBtn" title="Mute/Unmute">🎤</button>
+            <button class="ctrl-btn ctrl-end" id="endCallBtn" title="End Call">📵</button>
+            <button class="ctrl-btn" id="camBtn" title="Camera On/Off">📹</button>
+        </div>
+    </div>
+
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
